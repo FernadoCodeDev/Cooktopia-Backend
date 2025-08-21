@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
- 
+
     public function index()
     {
         return Product::all();
@@ -22,30 +22,29 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $product = Product::created($request->validated());
+        $product = Product::create($request->validated());
         return response()->json($product, 201);
-
     }
 
-    public function show(Product $id)
+    public function show(Product $product)
     {
         return $product;
     }
 
-    public function edit(string $id)
+    public function edit(string $product)
     {
         //
     }
 
-    public function update(ProductRequest $request, Product $id)
+    public function update(ProductRequest $request, Product $product)
     {
-        $product->update($request->validate());
+        $product->update($request->validated());
         return response()->json($product, 200);
     }
 
-
-    public function destroy(string $id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return response()->json(null, 204);
     }
 }

@@ -12,6 +12,10 @@ Route::get('/Admin', function () {
     return Inertia::render('Admin');
 });
 
+Route::get('/UpdateAdmin', function () {
+    return Inertia::render('UpdateAdmin');
+});
+
 /*
 Route::get('/product', function () {
     return Inertia::render('Product');

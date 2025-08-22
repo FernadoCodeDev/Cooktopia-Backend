@@ -67,24 +67,24 @@ const Header = () => {
                             className="w-40 h-auto cursor-pointer invert"
                         />
                         <MobileMenu
-                            textColor="text-beige-900 transition-all duration-900 ease-out"
-                            hoverColor="hover:text-beige-950"
+                            textColor="text-beige-950 transition-all duration-900 ease-out"
+                            hoverColor="hover:text-stone-950"
                             bgColor="hover:bg-beige-100 transition-all duration-900 ease-out rounded-lg"
                             invertColor="invert-0"
                         />
                     </div>
                     <div className="grid grid-cols-2 gap-1 max-w-[25rem]">
 
-                        <h1 className="text-5xl font-bold text-center text-beige-900">
+                        <h1 className="text-5xl font-bold text-center text-stone-950">
                             COCINA
                         </h1>
 
-                        <p className="pt-2 text-sm text-start text-beige-900">
+                        <p className="pt-2 text-sm text-start text-stone-950">
                             Descubre utensilios y herramientas que hacen que cocinar sea más fácil y rápido.
 
                         </p>
 
-                        <h1 className="col-span-3 text-5xl font-bold text-center text-beige-900">
+                        <h1 className="col-span-3 text-5xl font-bold text-center text-stone-950">
                             INTELIGENTE
                         </h1>
 

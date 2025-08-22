@@ -21,8 +21,8 @@ const NavBar = () => {
 
                 <div className="">
                     <MobileMenu
-                        textColor="text-beige-900 transition-all duration-300 ease-out"
-                        hoverColor="hover:text-beige-950"
+                        textColor="text-beige-950 transition-all duration-300 ease-out"
+                        hoverColor="hover:text-stone-950"
                         bgColor="hover:bg-beige-100 transition-all duration-300 ease-out rounded-lg"
                         invertColor="invert"
                     />
@@ -41,8 +41,8 @@ const NavBar = () => {
 
                 <div className="flex ">
                     <MobileMenu
-                        textColor="text-beige-900 transition-all duration-300 ease-out"
-                        hoverColor="hover:text-beige-950"
+                        textColor="text-beige-950 transition-all duration-300 ease-out"
+                        hoverColor="hover:text-stone-950"
                         bgColor="hover:bg-beige-100 transition-all duration-300 ease-out rounded-lg"
                         invertColor="invert-0"
                     />

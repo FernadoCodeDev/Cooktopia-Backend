@@ -56,7 +56,7 @@ export default function Modal({ isOpen, onClose, Articles }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 text-center text-black bg-black bg-opacity-60">
-      <div className="relative w-full max-w-[60rem] p-2 bg-beige-950 rounded-xl">
+      <div className="relative w-full max-w-[60rem] p-2 bg-stone-950 rounded-xl">
         <button
           onClick={onClose}
           className="absolute z-40 w-20 h-auto cursor-pointer top-2 right-2 "
@@ -64,11 +64,11 @@ export default function Modal({ isOpen, onClose, Articles }) {
           <Close />
         </button>
 
-        <div className="absolute top-0 left-0 w-full h-[50%] md:w-[50%] md:h-full bg-beige-950"></div>
+        <div className="absolute top-0 left-0 w-full h-[50%] md:w-[50%] md:h-full bg-stone-950"></div>
 
         <div className="relative z-10 grid items-center justify-center w-full grid-cols-1 gap-2 md:grid-cols-2">
           <div className="flex flex-col items-start justify-center grid-cols-1 gap-2 ">
-            <h2 className="absolute mb-2 text-lg font-bold text-beige-200 md:text-beige-950 md:text-xl top-2 left-2 ">
+            <h2 className="absolute mb-2 text-lg font-bold text-beige-200 md:text-stone-950 md:text-xl top-2 left-2 ">
               {Articles.Product}
             </h2>
             <img
@@ -78,7 +78,7 @@ export default function Modal({ isOpen, onClose, Articles }) {
             />
           </div>
 
-          <div className="flex flex-col items-start justify-center grid-cols-1 gap-2 md:mt-24 text-beige-950 md:text-beige-200 ">
+          <div className="flex flex-col items-start justify-center grid-cols-1 gap-2 md:mt-24 text-stone-950 md:text-beige-200 ">
             <div className="flex flex-row justify-center gap-4 ">
               <h1 className="mb-2 text-xl font-bold text-center md:text-2xl">
                 {Articles.name}
@@ -113,10 +113,10 @@ export default function Modal({ isOpen, onClose, Articles }) {
 
             <div className="flex flex-row gap-1">
 
-              <botton className="p-2 font-bold text-center text-black transition duration-700 ease-out cursor-pointer hover:text-white rounded-xl bg-beige-300 hover:bg-beige-500">
+              <botton className="p-2 font-bold text-center text-black transition duration-700 ease-out rounded-md cursor-pointer bg-beige-300 hover:bg-beige-600">
                 Editar + Producto
               </botton>
-              <botton className="p-2 font-bold text-center text-black transition duration-700 ease-out cursor-pointer hover:text-white rounded-xl bg-beige-300 hover:bg-beige-500">
+              <botton className="p-2 font-bold text-center text-black transition duration-700 ease-out rounded-md cursor-pointer bg-beige-300 hover:bg-beige-600">
                 Eliminar + Producto
               </botton>
             </div>

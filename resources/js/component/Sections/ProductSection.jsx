@@ -3,7 +3,7 @@ import Product from "../card/Product";
 
 const ProductSection = () => {
     return (
-        <div className="relative flex flex-col items-center justify-center w-full gap-4 p-4 bg-stone-300 text-stone-700 dark:text-slate-200 bg-bg-stone-300 dark:bg-neutral-800">
+        <div className="relative flex flex-col items-center justify-center w-full gap-4 p-4 bg-beige-200 text-beige-950 dark:text-beige-200 dark:bg-neutral-900">
             <h1 className="font-mono font-bold text-2xl md:text-4xl text-center max-w-[70rem]">
                 Productos de COOKTOPIA
             </h1>
@@ -16,10 +16,10 @@ const ProductSection = () => {
                 </h3>
 
                 <div className="">
-                    <label className="block p-2 text-lg rounded-t-lg text-beige-950 bg-beige-100">
+                    <label className="block p-2 text-lg rounded-t-lg text-stone-950 bg-beige-300">
                         Categoría
                     </label>
-                    <select className="w-full p-2 rounded-b-2xl text-beige-100 bg-beige-950">
+                    <select className="w-full p-2 rounded-b-2xl text-beige-200 bg-stone-950">
                         <option value="">Selecciona una categoría</option>
                         <option value="1">Sartenes</option>
                         <option value="2">Cuchillos</option>

@@ -1,14 +1,14 @@
 import React from "react";
-import Create from "../component/CRUD/Create"
+import Update from "../component/CRUD/Update"
 
-const MainAdmin = () => {
+const MainUpdate = () => {
     return (
         <main className="flex-1 bg-beige-200 dark:bg-neutral-900">
             <section >
-                <Create />
+                <Update />
             </section>
         </main>
     );
 };
 
-export default MainAdmin;
+export default MainUpdate;

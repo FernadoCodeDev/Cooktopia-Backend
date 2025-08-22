@@ -1,17 +1,17 @@
 import React from "react";
 
-const AdminCreate = () => {
+const AdminUpdate = () => {
   return (
-    <div className="flex flex-col gap-4 p-4 m-auto bg-beige-200 text-beige-950 dark:text-beige-200 dark:bg-neutral-900">
+     <div className="flex flex-col items-center justify-center gap-4 p-4 m-auto bg-beige-200 text-beige-950 dark:text-beige-200 dark:bg-neutral-900">
       <h1 className="mb-6 text-2xl font-bold text-center ">
-        Panel de Administración
+        Panel de Actualización
       </h1>
 
       <div className="flex flex-col gap-4 w-full m-auto  max-w-[60rem]">
         
       <details className="p-4 bg-white border rounded-lg shadow ">
         <summary className="text-lg font-semibold cursor-pointer text-neutral-800">
-          Crear Nueva Categoría
+          Editar Categoría
         </summary>
 
         <form className="flex flex-col gap-4 mt-4">
@@ -38,7 +38,7 @@ const AdminCreate = () => {
 
       <details className="p-4 bg-white border rounded-lg shadow ">
         <summary className="text-lg font-semibold cursor-pointer text-neutral-800">
-          Crear Nuevo Producto
+          Editar Producto
         </summary>
 
         <form className="flex flex-col gap-4 mt-4">
@@ -127,4 +127,4 @@ const AdminCreate = () => {
   );
 };
 
-export default AdminCreate;
+export default AdminUpdate;

@@ -9,7 +9,7 @@ import ImgN6 from "../../assets/img/ImgN6.webp";
 const CategoryCards = () => {
   return (
 
-    <div className="relative flex flex-col items-center justify-center w-full gap-4 p-4 bg-stone-300 text-stone-700 dark:text-slate-200 bg-bg-stone-300 dark:bg-neutral-800 min-h-auto ">
+    <div className="relative flex flex-col items-center justify-center w-full gap-4 p-4 bg-beige-200 text-beige-950 dark:text-beige-200 dark:bg-neutral-900 min-h-auto ">
       <h1 className="font-mono font-bold text-2xl md:text-4xl text-center max-w-[70rem]">
         CONSIGUE TODO EN UN SOLO LUGAR
       </h1>
@@ -20,7 +20,7 @@ const CategoryCards = () => {
 
           <img
             src={ImgN1}
-            alt="Cuchillos"
+            alt="alt"
             className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
           />
 

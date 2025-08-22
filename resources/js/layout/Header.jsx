@@ -9,16 +9,16 @@ const Header = () => {
         <div className="relative w-full ">
             {/* Design less than 768px */}
             <div
-                className="flex flex-col md:hidden relative bg-cover bg-center inset-0 w-full min-h-screen  p-4"
+                className="relative inset-0 flex flex-col w-full min-h-screen p-4 bg-center bg-cover md:hidden"
                 style={{ backgroundImage: `url(${CooktopiaShopBG})` }}
             >
-                <div className="flex flex-col justify-between h-screen pb-8 relative z-10">
+                <div className="relative z-10 flex flex-col justify-between h-screen pb-8">
 
-                    <div className="flex flex-row gap-2 justify-between ">
+                    <div className="flex flex-row justify-between gap-2 ">
                         <img
                             src={CooktopiaShopLogo}
                             alt="CooktopiaShopLogo"
-                            className="object-contain invert w-32 h-auto cursor-pointer"
+                            className="object-contain w-32 h-auto cursor-pointer invert-0"
                         />
                         <div className="">
                             <DarkMode />
@@ -27,25 +27,25 @@ const Header = () => {
 
                     <div className="flex mx-auto">
                         <MobileMenu
-                            textColor="text-stone-600 transition-all duration-700 ease-out"
-                            hoverColor="hover:text-stone-900"
-                            bgColor="bg-transparent"
+                            textColor="text-beige-100 transition-all duration-900 ease-out"
+                            hoverColor="hover:text-white"
+                            bgColor="hover:bg-beige-100/10 transition-all duration-900 ease-out hover:backdrop-blur-[4px] rounded-lg"
                             invertColor="invert-0"
                         />
                     </div>
 
                     <div className="grid grid-cols-2 gap-1">
 
-                        <h1 className="text-5xl font-bold  text-center text-slate-100">
+                        <h1 className="text-5xl font-bold text-center text-slate-100">
                             COCINA
                         </h1>
 
-                        <p className="text-sm pt-2 text-start text-slate-100">
+                        <p className="pt-2 text-sm text-start text-slate-100">
                             Descubre utensilios y herramientas que hacen que cocinar sea más fácil y rápido.
 
                         </p>
 
-                        <h1 className="text-5xl col-span-3 font-bold text-center text-slate-100">
+                        <h1 className="col-span-3 text-5xl font-bold text-center text-slate-100">
                             INTELIGENTE
                         </h1>
 
@@ -57,41 +57,41 @@ const Header = () => {
 
             {/* design greater than md */}
             <div className="hidden md:grid md:grid-cols-2 md:min-h-screen">
-                {/* left side bg-stone-200 */}
+                {/* left side bg-beige-200 */}
 
-                <div className="flex flex-col items-start justify-between p-6 bg-stone-200">
+                <div className="flex flex-col items-start justify-between p-6 bg-beige-200">
                     <div>
                         <img
                             src={CooktopiaShopLogo}
                             alt="CooktopiaShopLogo"
-                            className="w-40 h-auto cursor-pointer"
+                            className="w-40 h-auto cursor-pointer invert"
                         />
-                        <MobileMenu
-                            textColor="text-stone-600"
-                            hoverColor="hover:text-stone-900"
-                            bgColor="bg-transparent"
-                            invertColor="invert"
+                       <MobileMenu
+                            textColor="text-beige-900 transition-all duration-900 ease-out"
+                            hoverColor="hover:text-beige-950"
+                            bgColor="hover:bg-beige-100 transition-all duration-900 ease-out rounded-lg"
+                            invertColor="invert-0"
                         />
                     </div>
                     <div className="grid grid-cols-2 gap-1 max-w-[25rem]">
                         
-                            <h1 className="text-5xl font-bold  text-center text-beige-950">
+                            <h1 className="text-5xl font-bold text-center text-beige-900">
                                 COCINA
                             </h1>
                        
-                            <p className="text-sm pt-2 text-start text-beige-950">
+                            <p className="pt-2 text-sm text-start text-beige-900">
                                 Descubre utensilios y herramientas que hacen que cocinar sea más fácil y rápido. 
                              
                             </p>
                     
-                            <h1 className="text-5xl col-span-3 font-bold text-center text-beige-950">
+                            <h1 className="col-span-3 text-5xl font-bold text-center text-beige-900">
                                 INTELIGENTE
                             </h1>
                      
                     </div>
                 </div>
 
-                {/* right side bg-stone-900 with background image */}
+                {/* right side bg-beige-900 with background image */}
                 <div className="relative flex flex-col items-end justify-between p-6 text-white">
                     <div
                         className="absolute inset-0 w-full h-full bg-cover "

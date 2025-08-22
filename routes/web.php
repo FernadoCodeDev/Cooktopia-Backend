@@ -5,20 +5,21 @@ use Inertia\Inertia;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome');
-})->name('home');
-
-Route::get('dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::apiResource('products', ProductController::class);
-
-Route::get('/view', function () {
-    return view('view'); 
+    return Inertia::render('Home');
 });
 
+/*
+Route::get('/product', function () {
+    return Inertia::render('Product');
+});
+
+Route::get('/checkout', function () {
+    return Inertia::render('Checkout');
+
+*/
 
 
-require __DIR__.'/settings.php';
-require __DIR__.'/auth.php';
+
+
+require __DIR__ . '/settings.php';
+require __DIR__ . '/auth.php';

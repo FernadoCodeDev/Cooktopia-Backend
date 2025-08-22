@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Laravel + Vue</title>
-    @vite('resources/js/app.ts')
+    <title>Cooktopia</title>
+    @viteReactRefresh
+    @vite(['resources/js/app.jsx'])
 </head>
+
 <body>
+    @inertia
     <div id="app">
-        <users-list></users-list>
     </div>
 </body>
+
 </html>

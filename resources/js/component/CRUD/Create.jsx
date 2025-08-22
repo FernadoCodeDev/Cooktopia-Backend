@@ -1,6 +1,33 @@
 import React from "react";
+import { useForm } from '@inertiajs/react';
 
-const AdminCreate = () => {
+
+const AdminCreate = ({ categories }) => {
+
+  const { data, setData, post, processing, errors } = useForm({
+    name: '',
+    description: '',
+    price: '',
+    category_id: '',
+    status: 'normal',
+    image: null,
+  });
+
+  const Submit = (e) => {
+    e.preventDefault();
+    post('/products');
+  };
+
+  const changes = (e) => {
+    const { name, value } = e.target;
+    setData(name, value);
+  };
+
+  const ImageChange = (e) => {
+    setData('image', e.target.files[0]);
+  };
+
+
   return (
     <div className="flex flex-col gap-4 p-4 m-auto bg-beige-200 text-beige-950 dark:text-beige-200 dark:bg-neutral-900">
       <h1 className="mb-6 text-2xl font-bold text-center ">
@@ -8,121 +35,141 @@ const AdminCreate = () => {
       </h1>
 
       <div className="flex flex-col gap-4 w-full m-auto  max-w-[60rem]">
-        
-      <details className="p-4 bg-white border rounded-lg shadow ">
-        <summary className="text-lg font-semibold cursor-pointer text-neutral-800">
-          Crear Nueva Categoría
-        </summary>
 
-        <form className="flex flex-col gap-4 mt-4">
+        <details className="p-4 bg-white border rounded-lg shadow ">
+          <summary className="text-lg font-semibold cursor-pointer text-neutral-800">
+            Crear Nueva Categoría
+          </summary>
 
-          <div>
-            <label className="block text-sm font-medium text-neutral-500">
-              Nombre
-            </label>
-            <input
-              type="text"
-              placeholder="Ej. Sartenes"
-              className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-neutral-300"
-            />
-          </div>
+          <form className="flex flex-col gap-4 mt-4">
 
-          <button
-            type="submit"
-            className="px-4 py-2 text-white transition rounded-lg bg-neutral-800 hover:bg-neutral-950"
-          >
-            Guardar Categoría
-          </button>
-        </form>
-      </details>
+            <div>
+              <label className="block text-sm font-medium text-neutral-500">
+                Nombre
+              </label>
+              <input
+                type="text"
+                placeholder="Ej. Sartenes"
+                className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-neutral-300"
+              />
+            </div>
 
-      <details className="p-4 bg-white border rounded-lg shadow ">
-        <summary className="text-lg font-semibold cursor-pointer text-neutral-800">
-          Crear Nuevo Producto
-        </summary>
+            <button
+              type="submit"
+              className="px-4 py-2 text-white transition rounded-lg bg-neutral-800 hover:bg-neutral-950"
+            >
+              Guardar Categoría
+            </button>
+          </form>
+        </details>
 
-        <form className="flex flex-col gap-4 mt-4">
+        <details className="p-4 bg-white border rounded-lg shadow ">
+          <summary className="text-lg font-semibold cursor-pointer text-neutral-800">
+            Crear Nuevo Producto
+          </summary>
 
-          <div>
-            <label className="block text-sm font-medium text-neutral-500">
-              Nombre
-            </label>
-            <input
-              type="text"
-              placeholder="Ej. Sartén Antiadherente"
-              className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-beige-300"
-            />
-          </div>
+          <form onSubmit={Submit} className="flex flex-col gap-4 mt-4" encType="multipart/form-data">
 
+            <div>
+              <label className="block text-sm font-medium text-neutral-500">
+                Nombre
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={data.name}
+                onChange={changes}
+                placeholder="Ej. Sartén Antiadherente"
+                className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-beige-300"
+              /> {errors.name && <div className="text-red-900">{errors.name}</div>}
+            </div>
 
-          <div>
-            <label className="block text-sm font-medium text-neutral-500">
-              Descripción
-            </label>
-            <textarea
-              placeholder="Descripción del producto..."
-              className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-beige-300"
-              rows="3"
-            ></textarea>
-          </div>
-
-
-          <div>
-            <label className="block text-sm font-medium text-neutral-500">
-              Precio
-            </label>
-            <input
-              type="number"
-              step="0.01"
-              placeholder="0.00"
-              className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-beige-300"
-            />
-          </div>
+            <div>
+              <label className="block text-sm font-medium text-neutral-500">
+                Descripción
+              </label>
+              <textarea
+                name="description"
+                value={data.description}
+                onChange={changes}
+                placeholder="Descripción del producto"
+                className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-beige-300"
+                rows="3"
+              ></textarea> {errors.description && <div className="text-red-900">{errors.description}</div>}
+            </div>
 
 
-          <div>
-            <label className="block text-sm font-medium text-neutral-500">
-              Categoría
-            </label>
-            <select className="w-full p-2 mt-1 border rounded-lg">
-              <option value="">Selecciona una categoría</option>
-              <option value="1">Sartenes</option>
-              <option value="2">Cuchillos</option>
-              <option value="3">Accesorios</option>
-            </select>
-          </div>
+            <div>
+              <label className="block text-sm font-medium text-neutral-500">
+                Precio
+              </label>
+              <input
+                type="number"
+                name="price"
+                step="0.01"
+                value={data.price}
+                onChange={changes}
+                placeholder="0.00"
+                className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-beige-300"
+              />  {errors.price && <div className="text-red-900">{errors.price}</div>}
+            </div>
 
-          <div>
-            <label className="block text-sm font-medium text-neutral-500">
-              Estado
-            </label>
-            <select className="w-full p-2 mt-1 border rounded-lg">
-              <option value="normal">Normal</option>
-              <option value="new">Nuevo</option>
-              <option value="offer">Oferta</option>
-            </select>
-          </div>
+            <div>
+              <label className="block text-sm font-medium text-neutral-500">Categoría</label>
+              <select
+                name="category_id"
+                value={data.category_id}
+                onChange={changes}
+                className="w-full p-2 mt-1 border rounded-lg"
+              >
+                <option value="">Selecciona una categoría</option>
 
-          <div>
-            <label className="block text-sm font-medium text-neutral-500">
-              Imagen
-            </label>
-            <input
-              type="file"
-              className="w-full p-2 mt-1 border rounded-lg"
-            />
-          </div>
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>{category.name}</option>
+                ))}
+              </select>
+              {errors.category_id && <div className="text-red-500">{errors.category_id}</div>}
+            </div>
 
-          <button
-            type="submit"
-            className="px-4 py-2 text-white transition rounded-lg bg-neutral-800 hover:bg-neutral-950"
-          >
-            Guardar Producto
-          </button>
-        </form>
-      </details>
+            <div>
+              <label className="block text-sm font-medium text-neutral-500">
+                Estado
+              </label>
+              <select
+                name="status"
+                value={data.status}
+                onChange={changes}
+                className="w-full p-2 mt-1 border rounded-lg">
+                <option value="normal">Normal</option>
+                <option value="new">Nuevo</option>
+                <option value="offer">Oferta</option>
+              </select>
+              {errors.status && <div className="text-red-500">{errors.status}</div>}
+            </div>
 
-       </div>
+            <div>
+              <label className="block text-sm font-medium text-neutral-500">
+                Imagen
+              </label>
+              <input
+                type="file"
+                name="image"
+                onChange={ImageChange}
+                className="w-full p-2 mt-1 border rounded-lg"
+              /> {errors.image && <div className="text-red-500">{errors.image}</div>}
+            </div>
+
+            <button
+              type="submit"
+              disabled={processing}
+              className="px-4 py-2 text-white transition rounded-lg bg-neutral-800 hover:bg-neutral-950"
+            >
+              {processing ? 'Se esta guardando' : 'Guardar Producto'}
+            </button>
+          </form>
+        </details>
+
+      </div>
     </div>
   );
 };

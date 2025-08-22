@@ -14,6 +14,11 @@ Route::get('dashboard', function () {
 
 Route::apiResource('products', ProductController::class);
 
+Route::get('/view', function () {
+    return view('view'); 
+});
+
+
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

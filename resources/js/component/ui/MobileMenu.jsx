@@ -43,19 +43,19 @@ const MobileMenu = ({
         ${isMobile ? "flex flex-col" : "flex flex-row max-h-none opacity-100"}`}
       >
         <a
-          href="/#"
+          href="/"
           className={`p-2 text-[1rem] md:text-[2rem] font-bold ${bgColor} ${textColor} ${hoverColor}`}
         >
           Home
         </a>
         <a
-          href="/#"
+          href="/"
           className={`p-2 text-[1rem] md:text-[2rem] font-bold ${bgColor} ${textColor} ${hoverColor}`}
         >
           Contact
         </a>
         <a
-          href="/#"
+          href="/"
           className={`p-2 text-[1rem] md:text-[2rem] font-bold ${bgColor} ${textColor} ${hoverColor}`}
         >
           Us

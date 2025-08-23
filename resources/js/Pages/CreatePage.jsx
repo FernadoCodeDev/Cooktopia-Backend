@@ -1,15 +1,17 @@
 import React from "react";
 import NavBar from "../layout/NavBar";
-import MainAdmin from "../layout/MainAdmin";
+import MainCreate from "../layout/MainCreate";
 import Footer from "../layout/Footer";
 
-export default function Admin() {
+export default function CreatePage({ categories }) {
 
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />
-      <MainAdmin />
+      <MainCreate categories={categories} />
       <Footer />
     </div>
   );
 }
+
+{/*Pass categories as a prop, otherwise it will return undefined*/}

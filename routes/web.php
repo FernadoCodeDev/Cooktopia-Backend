@@ -8,15 +8,17 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
-
 //Create 
-Route::get('/Admin', [ProductController::class, 'create']);
+Route::get('/CreatePage', [ProductController::class, 'Create']);
 
 Route::post('/products', [ProductController::class, 'store']);
 
-Route::get('/Admin', function () {
-    return Inertia::render('Admin');
+/*
+Route::get('/CreatePage', function () {
+    return Inertia::render('CreatePage');
 });
+*/
+
 /*
 Route::post('/categories', [CategoryController::class, 'store']);
 */

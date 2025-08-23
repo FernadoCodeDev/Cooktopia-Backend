@@ -20,21 +20,30 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return Inertia::render('AdminCreate', [
+        return Inertia::render('CreatePage', [
             'categories' => $categories,
         ]);
     }
 
     public function store(ProductRequest $request)
     {
+
         $product = Product::create($request->validated());
+
+        // image
+        //Images are stored in a folder and renamed to add it to the database.
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('products', 'public');
-            $product->image = $imagePath;
+            // Unique name for images
+            $filename = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+
+            // Store the image in storage/app/public/images
+            $path = $request->file('image')->storeAs('images', $filename, 'public');
+
+            $product->image = $path;
             $product->save();
         }
 
-        return response()->json($product, 201);
+        return redirect()->back()->with('success', 'Producto creado correctamente');
     }
 
     public function show(Product $product)

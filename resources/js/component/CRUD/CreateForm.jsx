@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from '@inertiajs/react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
-const AdminCreate = ({ categories }) => {
+const CreateForm = ({ categories }) => {
 
   const { data, setData, post, processing, errors } = useForm({
     name: '',
     description: '',
     price: '',
-    category_id: '',
+    categories_id: '',
     status: 'normal',
     image: null,
   });
 
   const Submit = (e) => {
     e.preventDefault();
-    post('/products');
+    post('/products', {
+      forceFormData: true,
+      onSuccess: () => {
+        toast.success('Producto Agregado :)');
+        reset(); 
+
+      },
+      onError: (err) => {
+        console.error(err);
+        toast.error('Error al agregar producto :(');
+      }
+    });
   };
 
   const changes = (e) => {
@@ -26,7 +38,6 @@ const AdminCreate = ({ categories }) => {
   const ImageChange = (e) => {
     setData('image', e.target.files[0]);
   };
-
 
   return (
     <div className="flex flex-col gap-4 p-4 m-auto bg-beige-200 text-beige-950 dark:text-beige-200 dark:bg-neutral-900">
@@ -43,8 +54,8 @@ const AdminCreate = ({ categories }) => {
 
           <form className="flex flex-col gap-4 mt-4">
 
-            <div>
-              <label className="block text-sm font-medium text-neutral-500">
+            <div className="text-neutral-500">
+              <label className="block text-sm font-medium text-neutral-950">
                 Nombre
               </label>
               <input
@@ -70,8 +81,8 @@ const AdminCreate = ({ categories }) => {
 
           <form onSubmit={Submit} className="flex flex-col gap-4 mt-4" encType="multipart/form-data">
 
-            <div>
-              <label className="block text-sm font-medium text-neutral-500">
+            <div className="text-neutral-500">
+              <label className="block text-sm font-medium text-neutral-950">
                 Nombre
               </label>
               <input
@@ -79,13 +90,13 @@ const AdminCreate = ({ categories }) => {
                 name="name"
                 value={data.name}
                 onChange={changes}
-                placeholder="Ej. Sartén Antiadherente"
-                className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-beige-300"
+                placeholder="Sartén Antiadherente"
+                className="w-full p-2 mt-1 border rounded-lg "
               /> {errors.name && <div className="text-red-900">{errors.name}</div>}
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-neutral-500">
+            <div className="text-neutral-500">
+              <label className="block text-sm font-medium text-neutral-950">
                 Descripción
               </label>
               <textarea
@@ -93,14 +104,13 @@ const AdminCreate = ({ categories }) => {
                 value={data.description}
                 onChange={changes}
                 placeholder="Descripción del producto"
-                className="w-full p-2 mt-1 border rounded-lg focus:ring focus:ring-beige-300"
+                className="w-full p-2 mt-1 border rounded-lg "
                 rows="3"
               ></textarea> {errors.description && <div className="text-red-900">{errors.description}</div>}
             </div>
 
-
-            <div>
-              <label className="block text-sm font-medium text-neutral-500">
+            <div className="text-neutral-500">
+              <label className="block text-sm font-medium text-neutral-950">
                 Precio
               </label>
               <input
@@ -114,13 +124,13 @@ const AdminCreate = ({ categories }) => {
               />  {errors.price && <div className="text-red-900">{errors.price}</div>}
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-neutral-500">Categoría</label>
+            <div className="text-neutral-500">
+              <label className="block text-sm font-medium text-neutral-950">Categoría</label>
               <select
-                name="category_id"
-                value={data.category_id}
+                name="categories_id"
+                value={data.categories_id}
                 onChange={changes}
-                className="w-full p-2 mt-1 border rounded-lg"
+                className="w-full p-2 mt-1 border rounded-lg text-neutral-500"
               >
                 <option value="">Selecciona una categoría</option>
 
@@ -128,18 +138,18 @@ const AdminCreate = ({ categories }) => {
                   <option key={category.id} value={category.id}>{category.name}</option>
                 ))}
               </select>
-              {errors.category_id && <div className="text-red-500">{errors.category_id}</div>}
+              {errors.categories_id && <div className="text-red-500">{errors.categories_id}</div>}
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-neutral-500">
+            <div className="text-neutral-500">
+              <label className="block text-sm font-medium text-neutral-950">
                 Estado
               </label>
               <select
                 name="status"
                 value={data.status}
                 onChange={changes}
-                className="w-full p-2 mt-1 border rounded-lg">
+                className="w-full p-2 mt-1 border rounded-lg ">
                 <option value="normal">Normal</option>
                 <option value="new">Nuevo</option>
                 <option value="offer">Oferta</option>
@@ -147,8 +157,8 @@ const AdminCreate = ({ categories }) => {
               {errors.status && <div className="text-red-500">{errors.status}</div>}
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-neutral-500">
+            <div className="text-neutral-500">
+              <label className="block text-sm font-medium text-neutral-950">
                 Imagen
               </label>
               <input
@@ -174,4 +184,4 @@ const AdminCreate = ({ categories }) => {
   );
 };
 
-export default AdminCreate;
+export default CreateForm;

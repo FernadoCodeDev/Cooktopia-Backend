@@ -14,9 +14,13 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::all();
+        $products = Product::all(); /*Products */
+
+         $categories = Category::all(); /*Categories id and name */
+ 
         return Inertia::render('Home', [
             'products' => $products,
+            'categories' => $categories,
         ]);
     }
 
@@ -46,7 +50,7 @@ class ProductController extends Controller
             $product->save();
         }
 
-        return redirect()->back()->with('success', 'Producto creado correctamente');
+        return redirect()->back()->with('success', 'Producto creado');
     }
 
     public function show(Product $product)

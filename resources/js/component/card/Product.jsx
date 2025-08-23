@@ -15,6 +15,7 @@ function Product({ products = [], onProductClick }) {
         <div
           className="relative grid items-center justify-center w-full h-auto grid-cols-1 p-2 bg-stone-950"
           key={product.id}
+          data-category-id={product.categories_id}
           onClick={() => onProductClick(product)}
         >
           {/* T background */}

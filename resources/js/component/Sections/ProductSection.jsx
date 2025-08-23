@@ -3,15 +3,30 @@ import Product from "../card/Product";
 import Modal from "../ui/Modal";
 import axios from "axios";
 
-const ProductSection = ({ products }) => {
-
+const ProductSection = ({ products, categories }) => {
+/*
+    console.log("productos", products);
+    console.log("categorías", categories);
+*/
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState("");
 
     const ProductClick = (product) => {
         setSelectedProduct(product);
         setIsOpen(true);
     };
+
+    const CategoryChange = (event) => {
+        setSelectedCategory(event.target.value);
+    };
+
+    const filteredProducts = products.filter(product => {
+        if (selectedCategory === "") {
+            return true;
+        }
+        return product.categories_id.toString() === selectedCategory;
+    });
 
     useEffect(() => {
         if (isOpen) {
@@ -27,27 +42,30 @@ const ProductSection = ({ products }) => {
                 Productos de COOKTOPIA
             </h1>
 
-            <div className="flex flex-col md:flex-row gap-4 justify-between mx-auto max-w-[70rem]">
+            <div className="flex flex-col gap-4 justify-between mx-auto max-w-[70rem]">
 
-                <h3 className="font-mono text-lg font-bold text-center md:text-4xl">
-                    Producto
-                </h3>
-
-                <div className="">
-                    <label className="block p-2 text-lg rounded-t-lg text-stone-950 bg-beige-300">
-                        Categoría
+                <div className="flex flex-col">
+                    <label className="p-2 text-lg font-bold rounded-t-lg text-stone-950 bg-beige-300">
+                       Elegir Categoría
                     </label>
-                    <select className="w-full p-2 rounded-b-2xl text-beige-200 bg-stone-950">
-                        <option value="">Selecciona una categoría</option>
-                        <option value="1">Sartenes</option>
-                        <option value="2">Cuchillos</option>
-                        <option value="3">Accesorios</option>
+                    <select
+                        className="p-2 rounded-b-2xl text-beige-200 bg-stone-950"
+                        value={selectedCategory}
+                        onChange={CategoryChange}
+                    >
+                        <option value="">Todas las categorías</option>
+                        {categories && categories.map(category => (
+                            <option key={category.id} value={category.id}>
+                                {category.name}
+                            </option>
+                        ))}
                     </select>
+                   
                 </div>
             </div>
 
             <Product
-                products={products}
+                products={filteredProducts}
                 onProductClick={ProductClick} />
 
             <Modal

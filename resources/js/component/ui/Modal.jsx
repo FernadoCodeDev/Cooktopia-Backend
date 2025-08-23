@@ -5,8 +5,21 @@ import MasterCard from "../../assets/svg/MasterCard";
 import Paypal from "../../assets/svg/Paypal";
 import Close from "../../assets/svg/Close";
 
+import EditButton from "../buttons/EditButton";
+import DeleteButton from "../buttons/DeleteButton";
+
 export default function Modal({ isOpen, onClose, product }) {
   if (!isOpen || !product) return null;
+
+  const Edit = () => {
+
+    console.log(`Editar el producto con ID: ${product.id}`);
+  };
+
+  const Delete = () => {
+    console.log(`Eliminar el producto con ID: ${product.id}`);
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 text-center text-black bg-black bg-opacity-60">
@@ -40,35 +53,31 @@ export default function Modal({ isOpen, onClose, product }) {
               <p className="text-xl text-stone-500 md:text-beige-200">${product.price}</p>
             </div>
             <p className="text-base text-beige-900 md:text-beige-200">{product.description}</p>
-            
+
             <button className="flex flex-row justify-center w-full gap-2 p-2 font-bold text-center text-black transition duration-700 ease-out cursor-pointer hover:text-white rounded-xl bg-beige-300 hover:bg-beige-500">
-                <ShoppingCart width="32" /> Comprar
+              <ShoppingCart width="32" /> Comprar
             </button>
 
             <div className="flex-row hidden gap-1 md:flex">
+              <Visa width="30" />
+              <MasterCard width="30" />
+              <Paypal width="30" />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-row justify-between gap-1">
+              <h1 className="text-sm">¿Algo mal? </h1>
+              <div className="flex flex-row gap-1 md:hidden">
                 <Visa width="30" />
                 <MasterCard width="30" />
                 <Paypal width="30" />
+              </div>
             </div>
-          </div>
-          
-          <div className="flex flex-col gap-2">
-              <div className="flex flex-row justify-between gap-1">
-                <h1 className="text-sm">¿Algo mal? </h1>
-                <div className="flex flex-row gap-1 md:hidden">
-                    <Visa width="30" />
-                    <MasterCard width="30" />
-                    <Paypal width="30" />
-                </div>
-              </div>
-              <div className="flex flex-row gap-1">
-                  <button className="p-2 font-bold text-center text-black transition duration-700 ease-out rounded-md cursor-pointer bg-beige-300 hover:bg-beige-600">
-                      Editar + statuso
-                  </button>
-                  <button className="p-2 font-bold text-center text-black transition duration-700 ease-out rounded-md cursor-pointer bg-beige-300 hover:bg-beige-600">
-                      Eliminar + statuso
-                  </button>
-              </div>
+            <div className="flex flex-row gap-1">
+              <EditButton product={product} onClick={Edit} />
+              <DeleteButton product={product} onClick={Delete} />
+            </div>
           </div>
         </div>
 

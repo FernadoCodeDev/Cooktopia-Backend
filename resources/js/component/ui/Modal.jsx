@@ -32,7 +32,7 @@ export default function Modal({ isOpen, onClose, product }) {
             />
           </div>
 
-          <div className="flex flex-col items-start justify-center grid-cols-1 gap-2 md:mt-24 ">
+          <div className="flex flex-col items-center justify-center grid-cols-1 gap-2 md:mt-24 ">
             <div className="flex flex-row justify-center gap-4 text-stone-500 md:text-beige-200">
               <h1 className="mb-2 text-xl font-bold text-center md:text-2xl ">
                 {product.name}

@@ -1,32 +1,21 @@
-import { useState, useEffect } from "react";
-import Modal from "../ui/Modal";
-import { Articles } from "../ui/Modal";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import ArrowSVG from "../../assets/svg/ArrowSVG";
 
-function ArticlesCooktopia() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [SelectedArticle, setSelectedArticle] = useState(null);
+function Product({ products = [], onProductClick }) {
 
-  const handleClick = (Article) => {
-    setSelectedArticle(Article);
-    setIsOpen(true);
-  };
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-  }, [isOpen]);
+  if (!products.length) {
+    return <p>No hay productos disponibles</p>;
+  }
 
   return (
     <div className="grid grid-cols-2 gap-2 md:grid-cols-4 max-w-[80rem] m-auto">
-      {Articles.map((Article) => (
+
+      {products.map((product) => (
         <div
           className="relative grid items-center justify-center w-full h-auto grid-cols-1 p-2 bg-stone-950"
-          key={Article.id}
-          onClick={() => handleClick(Article)}
+          key={product.id}
+          onClick={() => onProductClick(product)}
         >
           {/* T background */}
           <div className="absolute top-0 left-0 w-full h-[50%] bg-stone-950"></div>
@@ -34,7 +23,7 @@ function ArticlesCooktopia() {
           {/* Content */}
           <div className="relative z-10 flex flex-col items-center justify-between w-full h-full">
             <div className="flex flex-row justify-between w-full p-2">
-              <h1 className="font-bold text-beige-200">{Article.Product}</h1>
+              <h1 className="font-bold text-beige-200">{product.status}</h1>
               <div className="flex items-center justify-center w-10 h-10 p-2 border-2 rounded-full border-beige-200">
                 <ArrowSVG />
               </div>
@@ -42,16 +31,16 @@ function ArticlesCooktopia() {
 
             {/* Image */}
             <img
-              src={Article.image}
-              alt={Article.name}
+              src={`/storage/${product.image}`}
+              alt={product.name}
               className="w-full h-auto drop-shadow-2xl"
             />
 
             <div className="flex flex-row justify-between w-full p-2 ">
-              <h1 className="font-bold text-beige-950">{Article.name}</h1>
+              <h1 className="font-bold text-beige-950">{product.name}</h1>
               <p className=" text-beige-950">
                 <span className="font-bold text-beige-950">$</span>
-                {Article.price}
+                {product.price}
               </p>
             </div>
           </div>
@@ -60,14 +49,8 @@ function ArticlesCooktopia() {
           <div className="absolute bottom-0 left-0 w-full h-[50%] bg-beige-300"></div>
         </div>
       ))}
-
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        Articles={SelectedArticle}
-      />
     </div>
   );
 }
 
-export default ArticlesCooktopia;
+export default Product;

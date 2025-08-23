@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Product from "../card/Product";
+import Modal from "../ui/Modal";
+import axios from "axios";
 
-const ProductSection = () => {
+const ProductSection = ({ products }) => {
+
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const ProductClick = (product) => {
+        setSelectedProduct(product);
+        setIsOpen(true);
+    };
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+    }, [isOpen]);
+
     return (
         <div className="relative flex flex-col items-center justify-center w-full gap-4 p-4 bg-beige-200 text-beige-950 dark:text-beige-200 dark:bg-neutral-900">
             <h1 className="font-mono font-bold text-2xl md:text-4xl text-center max-w-[70rem]">
@@ -9,7 +28,6 @@ const ProductSection = () => {
             </h1>
 
             <div className="flex flex-col md:flex-row gap-4 justify-between mx-auto max-w-[70rem]">
-
 
                 <h3 className="font-mono text-lg font-bold text-center md:text-4xl">
                     Producto
@@ -28,7 +46,16 @@ const ProductSection = () => {
                 </div>
             </div>
 
-            <Product />
+            <Product
+                products={products}
+                onProductClick={ProductClick} />
+
+            <Modal
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+                product={selectedProduct}
+            />
+
         </div>
     );
 };

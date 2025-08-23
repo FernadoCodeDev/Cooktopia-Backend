@@ -11,8 +11,7 @@
 
 <body>
     @inertia
-    <div id="app">
-    </div>
+
 </body>
 
 </html>

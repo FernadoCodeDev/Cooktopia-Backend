@@ -4,14 +4,13 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ProductController;
 
-Route::get('/', function () {
-    return Inertia::render('Home');
-});
-
 //Create 
 Route::get('/CreatePage', [ProductController::class, 'Create']);
 
 Route::post('/products', [ProductController::class, 'store']);
+
+//Read
+Route::get('/', [ProductController::class, 'index']);
 
 /*
 Route::get('/CreatePage', function () {

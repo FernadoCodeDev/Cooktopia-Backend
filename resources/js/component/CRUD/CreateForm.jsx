@@ -20,8 +20,9 @@ const CreateForm = ({ categories }) => {
       forceFormData: true,
       onSuccess: () => {
         toast.success('Producto Agregado :)');
-        reset(); 
-
+        setTimeout(() => {
+          window.location.reload(); // reload
+        }, 5000);
       },
       onError: (err) => {
         console.error(err);

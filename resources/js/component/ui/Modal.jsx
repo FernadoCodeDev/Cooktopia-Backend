@@ -1,4 +1,5 @@
 import React from "react";
+import { router } from "@inertiajs/react";
 import ShoppingCart from "../../assets/svg/ShoppingCart";
 import Visa from "../../assets/svg/Visa";
 import MasterCard from "../../assets/svg/MasterCard";
@@ -17,9 +18,20 @@ export default function Modal({ isOpen, onClose, product }) {
   };
 
   const Delete = () => {
-    console.log(`Eliminar el producto con ID: ${product.id}`);
-    onClose();
-  };
+
+    if (window.confirm(`Esto eliminara "${product.name}" seguro?`)) {
+      router.delete(`/products/${product.id}`, {
+        onSuccess: () => {
+          onClose(); //  modal closed
+          //toast.success(`${product.name} Se ha eliminado`);
+        },
+        onError: (errors) => {
+          // toast.error("No se ha eliminado el producto");
+          console.error(errors);
+        },
+      });
+    }
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 text-center text-black bg-black bg-opacity-60">

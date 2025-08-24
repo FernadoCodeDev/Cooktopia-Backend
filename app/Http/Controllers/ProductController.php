@@ -9,6 +9,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Inertia\Inertia; //Inertia for React 
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -61,10 +62,10 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-         $categories = Category::all();
+        $categories = Category::all();
 
         return Inertia::render('UpdatePage', [
-            'product' => $product, 
+            'product' => $product,
             'categories' => $categories,
         ]);
     }
@@ -76,12 +77,12 @@ class ProductController extends Controller
             if ($product->image && Storage::disk('public')->exists($product->image)) {
                 Storage::disk('public')->delete($product->image);
             }
-          
+
             $filename = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
             $path = $request->file('image')->storeAs('images', $filename, 'public');
-            $validatedData['image'] = $path; 
+            $validatedData['image'] = $path;
         } else {
-           unset($validatedData['image']);
+            unset($validatedData['image']);
         }
         $product->update($validatedData);
 
@@ -90,7 +91,10 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
+        if ($product->image && Storage::disk('public')->exists($product->image)) {
+            Storage::disk('public')->delete($product->image);
+        }
         $product->delete();
-        return response()->json(null, 204);
+        return Redirect::route('home')->with('success', 'Producto eliminado.');
     }
 }

@@ -1,4 +1,3 @@
-// DeleteButton.jsx
 import React from "react";
 
 export default function DeleteButton({ product, onClick }) {

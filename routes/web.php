@@ -10,36 +10,21 @@ Route::get('/CreatePage', [ProductController::class, 'Create']);
 Route::post('/products', [ProductController::class, 'store']);
 
 //Read
-Route::get('/', [ProductController::class, 'index']);
+Route::get('/', [ProductController::class, 'index'])->name('home');
 
 //Update
 Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 
 Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 
+//Delete
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
 
 /*
-Route::get('/CreatePage', function () {
-    return Inertia::render('CreatePage');
-});
-*/
-
-/*
-Route::post('/categories', [CategoryController::class, 'store']);
-*/
-
 Route::get('/UpdateAdmin', function () {
     return Inertia::render('UpdateAdmin');
 });
-
-/*
-Route::get('/product', function () {
-    return Inertia::render('Product');
-});
-
-Route::get('/checkout', function () {
-    return Inertia::render('Checkout');
-
 */
 
 

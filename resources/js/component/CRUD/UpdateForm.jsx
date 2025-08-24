@@ -160,7 +160,7 @@ const UpdateForm = ({ categories, product }) => {
 
             <div className="text-neutral-500">
               <label className="block text-sm font-medium text-neutral-950">
-                Este campo permanece vacio
+                Imagen
               </label>
               <input
                 type="file"

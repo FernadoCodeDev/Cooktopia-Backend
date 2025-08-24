@@ -33,6 +33,7 @@ const UpdateForm = ({ categories, product }) => {
 
     put(`/products/${product.id}`, {
       data: submitData,
+      //forceFormData: true,
       onSuccess: () => {
         toast.success('Producto actualizado :)');
 

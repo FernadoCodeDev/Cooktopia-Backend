@@ -81,7 +81,7 @@ class ProductController extends Controller
             $path = $request->file('image')->storeAs('images', $filename, 'public');
             $validatedData['image'] = $path; 
         } else {
-          
+           unset($validatedData['image']);
         }
         $product->update($validatedData);
 

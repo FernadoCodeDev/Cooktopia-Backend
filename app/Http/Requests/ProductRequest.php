@@ -14,13 +14,27 @@ class ProductRequest extends FormRequest
 
     public function rules(): array
     {
-        return [
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price' => 'required|numeric|min:0',
-            'status' => 'required|string|in:normal,new,offer',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif,svg|max:2048',
-            'categories_id' => 'required|exists:categories,id'
+        $rules = [
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'categories_id' => ['required', 'exists:categories,id'],
+            'status' => ['required', 'string'],
         ];
+
+
+        if ($this->isMethod('POST')) {
+            $rules['image'] = ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'];
+        }
+
+        /*
+        Use when HTTP is PUT to update, check if the image already exists
+        */
+
+        if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
+            $rules['image'] = ['nullable', 'image', 'mimes:jpeg,png,jpg,webp,gif,svg', 'max:2048'];
+        }
+
+        return $rules;
     }
 }

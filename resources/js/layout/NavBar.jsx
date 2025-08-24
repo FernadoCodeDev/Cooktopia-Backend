@@ -5,7 +5,7 @@ import DarkMode from "../component/ui/DarkMode";
 
 const NavBar = () => {
     return (
-        <nav className="w-full shadow-md bg-beige-200">
+        <nav className="w-full shadow-md bg-beige-400">
 
             <div className="flex flex-col items-center justify-between px-4 py-3 mx-auto md:hidden max-w-7xl">
                 <div className="flex flex-row items-center justify-between w-full gap-2">

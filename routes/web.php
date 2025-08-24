@@ -12,6 +12,12 @@ Route::post('/products', [ProductController::class, 'store']);
 //Read
 Route::get('/', [ProductController::class, 'index']);
 
+//Update
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+
+
 /*
 Route::get('/CreatePage', function () {
     return Inertia::render('CreatePage');

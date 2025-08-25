@@ -214,11 +214,10 @@ Más allá de ser un CRUD, fue una experiencia en la que pude consolidar conocim
 
 <div align="left">
 
-[![Cosmic-Pizza](https://img.shields.io/static/v1?message=Cosmic-Pizza&logo=hoppscotch&label=&color=e2d9c8&logoColor=black&labelColor=&style=for-the-badge)](https://github.com/FernadoCodeDev/Cosmic-Pizza)
-[![Keys-Home](https://img.shields.io/static/v1?message=Keys-Homes&logo=keeweb&label=&color=e2d9c8&logoColor=black&labelColor=&style=for-the-badge)](https://github.com/FernadoCodeDev/KeysHomes)
+[![Cosmic-Pizza](https://img.shields.io/static/v1?message=Cosmic-Pizza&logo=hoppscotch&label=&color=0b152f&logoColor=white&labelColor=&style=for-the-badge)](https://github.com/FernadoCodeDev/Cosmic-Pizza)
+[![Keys-Home](https://img.shields.io/static/v1?message=Keys-Homes&logo=keeweb&label=&color=1d3e37&logoColor=white&labelColor=&style=for-the-badge)](https://github.com/FernadoCodeDev/KeysHomes)
 
 </div>  
-
 
 lo que demuestra mi interés y práctica constante en este tipo de desarrollos.
 

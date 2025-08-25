@@ -199,8 +199,6 @@ Esta funcionalidad garantiza que los productos puedan eliminarse de forma segura
 
 Cabe mencionar que el sistema utiliza la alerta nativa del navegador como confirmación. Aunque cumple su función, una mejora futura sería **implementar alertas personalizadas**, brindando una experiencia visual más acorde al resto de la aplicación.
 
-----
-
 Con este proyecto se implementaron de forma exitosa las cuatro operaciones básicas del CRUD:
 
 - **Create** (Crear nuevos productos).
@@ -221,9 +219,22 @@ Más allá de ser un CRUD, fue una experiencia en la que pude consolidar conocim
 
 lo que demuestra mi interés y práctica constante en este tipo de desarrollos.
 
+</details>
+
+----
+
 Gracias por tomarte el tiempo de leer este README 🙌
 Si eres reclutador, o simplemente alguien interesado en mi trabajo, ¡espero que disfrutes revisando este proyecto tanto como yo disfruté al desarrollarlo!
 
+Cabe mencionar que la página desplegada
 
-</details>
+[![CooktopiaShop](https://img.shields.io/static/v1?message=Cooktopia-Shop&logo=shopee&label=&color=e2d9c8&logoColor=black&labelColor=&style=for-the-badge)](https://cooktopiashop.netlify.app/)
+
+corresponde a la versión estática del proyecto, proveniente de otro repositorio, y contiene únicamente el frontend funcionando con datos simulados mediante JSON.
+
+El contenido completo de ese repositorio lo puedes consultar aquí:
+
+[![CooktopiaShop-FrontEnd-Repositorio](https://img.shields.io/static/v1?message=Cooktopia-Shop-FrontEnd-Repositorio&logo=github&label=&color=181717&logoColor=white&labelColor=&style=for-the-badge)](https://cooktopiashop.netlify.app/)
+
+
 

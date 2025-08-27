@@ -89,7 +89,7 @@ Para que puedas ejecutar y probar completamente el CRUD, es importante seguir es
 - **Clonar el repositorio y configurar tu base de datos junto con las variables de entorno.**
 - **Ejecutar el script de creación de base de datos, tablas y campos requeridos:**
 
-[script de creación de base de datos](https://clerk.com/docs)
+[script de creación de base de datos](https://github.com/FernadoCodeDev/Cooktopia-Backend/blob/main/data/schema.sql)
 
 - **El proyecto cuenta con tres rutas principales:**
 
